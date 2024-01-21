@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-
-app.set('json spaces', 2);
-require('dotenv').config();
 const cors = require('cors'); 
 app.use(cors());
+app.set('json spaces', 2);
+require('dotenv').config();
+
 const fetch = require('node-fetch');
 
 const port = process.env.PORT || 3000;
