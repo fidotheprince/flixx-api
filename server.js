@@ -20,7 +20,6 @@ app.listen(port, () => {
 
 
 app.get('/resource/:type/:status', (req, res) => {
-  
   const { type, status } = req.params; 
 
   const url = `${process.env.API_URL}${type}/${status}?api_key=${process.env.API_KEY}&language=en-US`
@@ -29,11 +28,9 @@ app.get('/resource/:type/:status', (req, res) => {
     .then(response => response.json())
     .then(data => res.json(data))
     .catch(err => res.status(400).send('Error: ' + err));
-
 });
 
 app.get('/search/:type', (req, res) => {
-
     const { type } = req.params;
     const { query, page } = req.query;
 
@@ -43,11 +40,9 @@ app.get('/search/:type', (req, res) => {
     .then(response => response.json())
     .then(data => res.json(data))
     .catch(err => res.status(400).send('Error: ' + err));
-
 });
 
 app.get('/details/:type/:id', (req, res) => {
-
     const { type, id } = req.params;
     const url = `${process.env.API_URL}${type}/${id}?api_key=${process.env.API_KEY}&language=en-US`
 
@@ -55,5 +50,4 @@ app.get('/details/:type/:id', (req, res) => {
     .then(response => response.json())
     .then(data => res.json(data))
     .catch(err => res.status(400).send('Error: ' + err));
-
 });
